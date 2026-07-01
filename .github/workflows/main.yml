@@ -20,7 +20,7 @@ jobs:
     steps:
 
     - name: Code checkout
-      uses: actions/checout@v4
+      uses: actions/checkout@v4
 
     - name: Runs tests on main branch
       run: mvn test
