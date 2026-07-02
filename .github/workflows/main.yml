@@ -81,6 +81,16 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Set up JDK 17 with Maven cache
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: '17'
+        cache: maven
+
+    - name: Warm up Maven dependencies (IMPORTANT)
+      run: mvn dependency:go-offline
+
     - name: Run Trivy filesystem scan
       uses: aquasecurity/trivy-action@master
       with:
@@ -91,7 +101,7 @@ jobs:
         vuln-type: os,library
         output: trivy-results.json
 
-    - name: Upload Trivy scan results as artifact
+    - name: Upload Trivy scan results
       uses: actions/upload-artifact@v4
       with:
         name: trivy-scan-results
