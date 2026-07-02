@@ -112,7 +112,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     needs: [ Build, Testing, Security_Scan ]
-    if: github.ref == 'refs/heads,main'
+    if: github.ref == 'refs/heads/main'
     steps:
     - name: Code checkout
       uses: actions/checkout@v4
