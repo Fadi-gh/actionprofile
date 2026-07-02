@@ -122,13 +122,13 @@ jobs:
     - name: Debug AWS secrets
       run: |
         echo "AWS_KEY_EXISTS=${{ secrets.AWS_ACCESS_KEY_ID != '' }}"
-        echo "AWS_SECRET_EXISTS=${{ secrets.AWS_SECRET_ACCESS_KEY != '' }}"
+        echo "AWS_SECRET_EXISTS=${{ secrets.AWS_SECRECT_ACCESS_KEY != '' }}"
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRECT_ACCESS_KEY }}
         aws-region: ${{ vars.AWS_REGION }}
 
     - name: Login to Amazon ECR
